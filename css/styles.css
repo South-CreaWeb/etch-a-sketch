@@ -6,8 +6,25 @@
 
 /* GENERAL */
 body {
+    width: 100%;
     padding: 20px;
 }
+
 h1 {
     text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-top: 25px;
+    max-width: 845px;
+}
+
+.square {
+    width: 50px;
+    height: 50px;
+    background-color: aqua;
 }
