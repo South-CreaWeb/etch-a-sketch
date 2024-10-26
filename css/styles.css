@@ -40,10 +40,10 @@ h1 {
 .container {
     display: flex;
     justify-content: center;
+    width: 960px;
     flex-wrap: wrap;
     margin: 0 auto;
     margin-top: 25px;
-    max-width: 845px;
 }
 
 .square {
