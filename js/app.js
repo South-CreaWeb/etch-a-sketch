@@ -48,8 +48,11 @@ function createDefaultGrid(number) {
   }
 }
 
-createDefaultGrid(16);
+createDefaultGrid(64);
 
+/**
+ * Create a custom grid 
+ */
 function createCustomGrid() {
 
   
@@ -62,37 +65,57 @@ function createCustomGrid() {
     labelSize.insertAdjacentElement("beforeend", inputSize);
     labelSize.appendChild(inputSize);
     containerButton.appendChild(labelSize);
+
+    // Confirm button
+    const confirmButton = createElement("button", "Confirmer")
+    confirmButton.setAttribute("class", "confirm__button");
+    labelSize.insertAdjacentElement("beforeend", confirmButton);
+
+    // Create reset button
+    const resetButton = createElement("button", "Reset")
+    resetButton.setAttribute("class", "reset__button")
+    confirmButton.insertAdjacentElement("afterend", resetButton)
+
     //Create new container
     const customGrid = createElement("div", "");
     customGrid.setAttribute("class", "container__custom");
     customGrid.insertAdjacentElement("afterend", containerButton);
     body.appendChild(customGrid);
 
-    inputSize.addEventListener("keyup", (event) => {
-      const numberForSize = inputSize.value;
+    
+      confirmButton.addEventListener("click", (event) => {
+        let numberForSize = Math.floor(inputSize.value);
+        const customSquare = numberForSize * numberForSize;
+        console.log(customSquare);
+        const squareSize = Math.floor(containerWidth / numberForSize);
+        console.log(squareSize);
 
-      const squareSize = Math.floor(containerWidth / numberForSize);
 
-      for (let i = 1; i <= numberForSize; i++) {
-        const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-        let defaultSquare = createElement("div", "");
-        defaultSquare.setAttribute("class", "square");
-        defaultSquare.style.width = squareSize + "px";
-        defaultSquare.style.height = squareSize + "px";
-        customGrid.appendChild(defaultSquare);
+        for (let i = 1; i <= customSquare; i++) {
+          const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+          let square = createElement("div", "");
+          square.setAttribute("class", "square");
+          square.style.width = squareSize + "px";
+          square.style.height = squareSize + "px";
+          customGrid.appendChild(square);
 
-        defaultSquare.addEventListener("mouseenter", (event) => {
-          defaultSquare.style["background-color"] = "#" + randomColor;
-          setTimeout(() => {
-            defaultSquare.style.removeProperty("background-color");
-          }, 2000);
-        });
-      }
+          square.addEventListener("mouseenter", (event) => {
+            square.style["background-color"] = "#" + randomColor;
+            setTimeout(() => {
+              square.style.removeProperty("background-color");
+            }, 2000);
+          });
+          resetButton.addEventListener("click", (event) => {
+            inputSize.value = ""
+            square.remove();
+          });
+        }
+      });
 
+      
+      
+      containerGrid.remove();
     });
-    containerGrid.remove();
-  });
-  
 }
-
-createCustomGrid()
+  
+  createCustomGrid();

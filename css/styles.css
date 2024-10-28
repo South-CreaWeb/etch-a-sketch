@@ -24,8 +24,9 @@ h1 {
     margin-top: 25px;
 }
 
-.button__ask {
+.button__ask, .confirm__button, .reset__button {
     padding: 5px 10px;
+    margin: 5px 0;
     font-size: 16px;
     outline: none;
     border: none;
@@ -35,7 +36,7 @@ h1 {
     transition: all ease-in .3s;
 }
 
-.button__ask:hover {
+.button__ask:hover, .confirm__button:hover, .reset__button:hover{
     background-color: rgb(72, 72, 116);
     color: #fff;
 }
@@ -45,7 +46,6 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
     width: 960px;
-    height: 960px;
     flex-wrap: wrap;
     margin: 0 auto;
     margin-top: 25px;
@@ -66,6 +66,6 @@ h1 {
 }
 
 .size__grid {
-    margin-top: 5px;
+    margin: 5px 0;
     width: 50%;
 }
