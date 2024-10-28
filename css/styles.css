@@ -18,6 +18,9 @@ h1 {
 .container__button {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
     margin-top: 25px;
 }
 
@@ -37,16 +40,32 @@ h1 {
     color: #fff;
 }
 
-.container__grid {
+.container__grid, .container__custom {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     width: 960px;
+    height: 960px;
     flex-wrap: wrap;
     margin: 0 auto;
     margin-top: 25px;
+    overflow: hidden;
 }
 
 .square {
     background-color: lightgrey;
     transition: all ease-in-out .3s;
+    text-align: center;
+}
+
+.label__size {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 25px;
+}
+
+.size__grid {
+    margin-top: 5px;
+    width: 50%;
 }
